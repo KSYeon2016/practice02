@@ -6,7 +6,6 @@ public class CalcApp {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		int result = 0;
 		
 		while(true){
 			System.out.print(">> ");
@@ -19,30 +18,63 @@ public class CalcApp {
 			String[] tokens = input.split(" ");
 			
 			switch(tokens[1]){
-				case "+" :
+				case "+" : {
 					Add add = new Add();
-					add.setValue(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[2]));
-					result = add.calculate();
+					
+					int lValue = Integer.parseInt(tokens[0]);
+					int rValue = Integer.parseInt(tokens[2]);
+					add.setValue(lValue, rValue);
+					
+					int result = add.calculate();
+					System.out.println(">>" + result);
+					
 					break;
-				case "*" :
+				}
+				case "*" : {
 					Mul mul = new Mul();
-					mul.setValue(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[2]));
-					result = mul.calculate();
+					
+					int lValue = Integer.parseInt(tokens[0]);
+					int rValue = Integer.parseInt(tokens[2]);
+					mul.setValue(lValue, rValue);
+					
+					int result = mul.calculate();
+					System.out.println(">>" + result);
+					
 					break;
-				case "-" :
+				}
+				case "-" : {
 					Sub sub = new Sub();
-					sub.setValue(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[2]));
-					result = sub.calculate();
+					
+					int lValue = Integer.parseInt(tokens[0]);
+					int rValue = Integer.parseInt(tokens[2]);
+					sub.setValue(lValue, rValue);
+					
+					int result = sub.calculate();
+					System.out.println(">>" + result);
+					
 					break;
-				case "/" :
+				}
+				case "/" : {
 					Div div = new Div();
-					div.setValue(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[2]));
-					result = div.calculate();
+
+					int lValue = Integer.parseInt(tokens[0]);
+					int rValue = Integer.parseInt(tokens[2]);
+					div.setValue(lValue, rValue);
+					
+					int result = div.calculate();
+					System.out.println(">>" + result);
+					
 					break;
+				}
+				default	: {
+					System.out.println( ">> unknown operator");
+					break;
+				}
 			}
 			
-			System.out.println(">> " + result);
 		}
+		
 		scanner.close();
+		
 	}
 }
